@@ -1,19 +1,19 @@
-CC:= gcc
-CFLAGS:= -Wall -Wextra -Werror
+CC= gcc
+CFLAGS= -Wall -Wextra -Werror
 
-NAME:= libft.a
+NAME= libft.a
 
-SOURCES := $(wildcard *.c)
+SOURCES= $(wildcard *.c)
 
-OBJ = $(SOURCES:.c=.o)
+OBJS= $(SOURCES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -cr $@ $(OBJS)
+	ar rcs $@ $(OBJS)
 
-$(OBJECTS): %.o: %.c
-	$(CC) -c $(CFLAGS) $^ -o $@
+.c.o:
+	$(CC) -c $(CFLAGS) $<
 
 clean:
 	rm -f $(OBJS)
