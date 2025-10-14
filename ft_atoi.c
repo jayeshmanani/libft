@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 16:03:31 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/14 17:26:57 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,3 @@ int	ft_atoi(char *str)
 	}
 	return (mul * calc_num(str, index));
 }
-
-// int	main(void)
-// {
-// 	printf("%d", ft_atoi("-1234ab567"));
-// 	return (0);
-// }
