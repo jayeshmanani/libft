@@ -3,9 +3,9 @@ CFLAGS:= -Wall -Wextra -Werror
 
 NAME:= libft.a
 
-# SOURCES := $(wildcard *.c)
+SOURCES := $(wildcard *.c)
 
-OBJECTS := $(%.c=%.o)
+OBJ = $(SOURCES:.c=.o)
 
 all: $(NAME)
 
@@ -14,9 +14,6 @@ $(NAME): $(OBJS)
 
 $(OBJECTS): %.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@
-
-# %.o: %.c
-# 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJS)

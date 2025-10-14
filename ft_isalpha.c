@@ -6,10 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:38:15 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 16:06:27 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/14 18:36:38 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isalpha(int input)
+int	ft_isalpha(int input)
 {
+	if ((input >= 'a' && input <= 'z') || (input >= 'A' && input <= 'Z'))
+		return (1);
+	return (0);
 }
