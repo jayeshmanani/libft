@@ -6,10 +6,10 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:38:15 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 15:43:27 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/14 15:51:02 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int isalpha(int input){
-    
+int	isalpha(int input)
+{
 }
