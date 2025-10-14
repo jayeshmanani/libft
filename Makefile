@@ -3,15 +3,20 @@ CFLAGS:= -Wall -Wextra -Werror
 
 NAME:= libft.a
 
-OBJS = $(%.c=%.o)
+# SOURCES := $(wildcard *.c)
+
+OBJECTS := $(%.c=%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar -cr $@ $(OBJS)
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+$(OBJECTS): %.o: %.c
+	$(CC) -c $(CFLAGS) $^ -o $@
+
+# %.o: %.c
+# 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJS)

@@ -6,13 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:04:33 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 16:05:42 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/14 16:57:29 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*str)
