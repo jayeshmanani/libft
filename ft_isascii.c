@@ -6,7 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 12:03:20 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 12:53:50 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_isascii(int input)
+{
+	if ((input >= 0 && input <= 127))
+		return (1);
+	return (0);
+}
