@@ -6,7 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:32 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 16:06:32 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 13:05:54 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_isdigit(int input)
+{
+	if (input >= '0' && input <= '9')
+		return (1);
+	return (0);
+}

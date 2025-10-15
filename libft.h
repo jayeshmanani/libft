@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 12:56:00 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 13:05:50 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int	ft_atoi(char *inp);
 int	ft_isalpha(int inp);
 int	ft_isascii(int input);
 int	ft_isalnum(int input);
+int	ft_isdigit(int input);
 
 #endif
