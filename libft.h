@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 15:55:45 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:01:34 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int inp);
 int		ft_tolower(int inp);
-// strchr
+char	*ft_strchr(const char *s, int c);
 // strrchr
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // memchr

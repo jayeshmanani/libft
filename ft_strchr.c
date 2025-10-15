@@ -6,7 +6,24 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 16:06:50 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:19:53 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char	*ft_strchr(const char *s, int c)
+{
+	int	ind;
+
+	ind = 0;
+	while (s[ind] != 0)
+	{
+		if (s[ind] == c)
+		{
+			return (&s[ind]);
+		}
+		ind++;
+	}
+	if (s[ind] == 0 && c != 0)
+		return (0);
+    return (&s[ind]);
+}
