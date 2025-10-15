@@ -6,12 +6,11 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:59 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 15:35:56 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 15:50:47 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
