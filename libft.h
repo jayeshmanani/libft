@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 13:32:04 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 13:44:43 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define LIBFT_H
 
 int		ft_isalpha(int inp);
-int		ft_isdigit(int input);
-int		ft_isalnum(int input);
-int		ft_isascii(int input);
-// isprint
+int		ft_isdigit(int inp);
+int		ft_isalnum(int inp);
+int		ft_isascii(int inp);
+int		ft_isprint(int inp);
 int		ft_strlen(char *str);
-// memset
+void	*ft_memset(void *s, int c, int n);
 void	ft_bzero(void *s, int n);
 // memcpy
 // memmove
