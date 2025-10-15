@@ -6,11 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:56 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 15:06:48 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 15:47:19 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	unsigned int	len;
 	int				count;

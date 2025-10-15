@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 15:45:05 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 15:48:30 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int				ft_isalpha(int inp);
-int				ft_isdigit(int inp);
-int				ft_isalnum(int inp);
-int				ft_isascii(int inp);
-int				ft_isprint(int inp);
-size_t			ft_strlen(const char *s);
-void			*ft_memset(void *s, int c, size_t n);
-void			ft_bzero(void *s, size_t n);
+int		ft_isalpha(int inp);
+int		ft_isdigit(int inp);
+int		ft_isalnum(int inp);
+int		ft_isascii(int inp);
+int		ft_isprint(int inp);
+size_t	ft_strlen(const char *s);
+void	*ft_memset(void *s, int c, size_t n);
+void	ft_bzero(void *s, size_t n);
 // memcpy
-void			*ft_memmove(void *dest, const void *src, size_t n);
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-int				ft_toupper(int inp);
-int				ft_tolower(int inp);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+int		ft_toupper(int inp);
+int		ft_tolower(int inp);
 // strchr
 // strrchr
-int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // memchr
 // memcmp
 // strnstr
-int				ft_atoi(char *inp);
+int		ft_atoi(char *inp);
 // calloc
 // strdup
 
