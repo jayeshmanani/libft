@@ -10,10 +10,10 @@ OBJS= $(SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	echo "Creating the Static Library $(NAME)"
+	@echo "Creating the Static Library $(NAME)"
 	ar rcs $@ $(OBJS)
 
-$(OBJS): %.o: %.c
+%.o: %.c
 	$(CC) -c $^ -o $@
 
 clean:
