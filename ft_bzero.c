@@ -6,11 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:18 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 13:31:13 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 15:44:22 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
 	int		count;
 	char	*loc;
