@@ -6,14 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:47 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 14:44:07 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 15:43:12 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// #include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	char	*ss;
 	int		i;

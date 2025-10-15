@@ -6,19 +6,21 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:04:33 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 13:11:43 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 15:42:47 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t ft_strlen(const char *s)
 {
 	int	count;
 
 	count = 0;
-	while (*str)
+	while (*s)
 	{
 		count++;
-		str++;
+		s++;
 	}
 	return (count);
 }
