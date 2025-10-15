@@ -6,13 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:04:33 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 15:42:47 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 17:24:12 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	count;
 
