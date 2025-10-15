@@ -6,7 +6,14 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:24 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/14 16:06:24 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 12:55:31 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_isalnum(int input)
+{
+	if ((input >= 'a' && input <= 'z') || (input >= 'A' && input <= 'Z')
+		|| (input >= '0' && input <= '9'))
+		return (1);
+	return (0);
+}
