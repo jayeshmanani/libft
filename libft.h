@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 13:44:43 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 14:22:54 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_strlen(char *str);
 void	*ft_memset(void *s, int c, int n);
 void	ft_bzero(void *s, int n);
 // memcpy
-// memmove
+void	*ft_memmove(void *dest, const void *src, int n);
 // strlcpy
 // strlcat
 int		ft_toupper(int inp);
