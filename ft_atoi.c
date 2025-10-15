@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 12:49:30 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 13:10:57 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	calc_num(char *str, int index)
 
 int	ft_atoi(char *str)
 {
-	int num;
-	int count_neg;
-	int index;
+	int	num;
+	int	count_neg;
+	int	index;
 
 	num = 0;
 	count_neg = 0;

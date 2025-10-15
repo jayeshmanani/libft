@@ -6,12 +6,12 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 13:05:50 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/15 13:09:56 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _LIBFT_H_
-# define _LIBFT_H_
+#ifndef LIBFT_H
+# define LIBFT_H
 
 int	ft_toupper(int inp);
 int	ft_tolower(int inp);
