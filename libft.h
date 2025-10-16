@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/15 17:58:00 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/16 11:45:04 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
+# include <string.h>
 
 int		ft_isalpha(int inp);
 int		ft_isdigit(int inp);
