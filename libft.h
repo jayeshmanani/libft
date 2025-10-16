@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 13:24:56 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/16 13:51:47 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <string.h>
 # include <unistd.h>
 
-// Part 1 - Libc functions
+// Part 1 - Libc functions (1-23)
 int		ft_isalpha(int inp);
 int		ft_isdigit(int inp);
 int		ft_isalnum(int inp);
@@ -44,7 +44,8 @@ int		ft_atoi(const char *inp);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 
-// Part 2 - Additional functions
+// Part 2 - Additional functions (24-25)
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
