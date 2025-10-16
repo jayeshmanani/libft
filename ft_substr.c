@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 16:06:37 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 13:22:22 by jmanani          ###   ########.fr       */
+/*   Created: 2025/10/16 13:25:10 by jmanani           #+#    #+#             */
+/*   Updated: 2025/10/16 13:43:35 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		ind;
-	char	*temp_s;
+	char	*new_str;
+	int		i;
+	int		str_len;
 
-	temp_s = (unsigned char *)s;
-	ind = 0;
-	while (temp_s[ind] != 0 && ind < n)
+	i = 0;
+	str_len = ft_strlen(s);
+	if (str_len < len)
+		new_str = (char *)malloc(sizeof(char) * (1));
+	else
+		new_str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!new_str)
+		return (0);
+	while ((start + i < start + len) && (start < str_len))
 	{
-		if (temp_s[ind] == c)
-		{
-			return (&temp_s[ind]);
-		}
-		ind++;
+		new_str[i++] = s[start + i];
 	}
-	if (temp_s[ind] == 0 && c == 0)
-		return (&temp_s[ind]);
-	return (0);
+	new_str[i] = '\0';
+	return (new_str);
 }
