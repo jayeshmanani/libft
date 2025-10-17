@@ -6,13 +6,15 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/17 11:35:38 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 11:40:57 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	calc_num(char *str, int index)
+#include "libft.h"
+
+size_t	calc_num(char *str, int index)
 {
-	int	num;
+	size_t	num;
 
 	num = 0;
 	while (str[index] != 0 && str[index] >= '0' && str[index] <= '9')
@@ -26,12 +28,12 @@ int	calc_num(char *str, int index)
 
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	count_neg;
-	int	index;
+	size_t	num;
+	bool	is_neg;
+	size_t	index;
 
+	is_neg = false;
 	num = 0;
-	count_neg = 0;
 	index = 0;
 	while ((str[index] != 0) && ((str[index] < 14 && str[index] > 8)
 			|| (str[index] == 32)))
@@ -39,11 +41,11 @@ int	ft_atoi(const char *str)
 	if (str[index] == '-' || str[index] == '+')
 	{
 		if (str[index] == '-')
-			count_neg++;
+			is_neg = true;
 		index++;
 	}
 	num = calc_num(str, index);
-	if (count_neg % 2 == 0)
-		return (num);
-	return (-num);
+	if (is_neg)
+		return (-num);
+	return (num);
 }
