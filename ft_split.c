@@ -6,13 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/17 11:41:23 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 15:47:43 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	word_count(char *str, char c)
+size_t	word_count(const char *str, char c)
 {
 	int	count;
 	int	is_word;
@@ -24,16 +24,21 @@ size_t	word_count(char *str, char c)
 	while (*str != '\0')
 	{
 		is_word = 0;
-		if (!(*str++ == c) && (!is_word))
+		while (!(*str == c))
 		{
-			is_word = 1;
-			count++;
+			if (!is_word)
+			{
+				is_word = 1;
+				count++;
+			}
+			str++;
 		}
+		str++;
 	}
 	return (count);
 }
 
-char	*get_word_from_string(char *str, char c, int i)
+char	*get_word_from_string(const char *str, char c, int i)
 {
 	char	*arr;
 	int		j;
@@ -43,37 +48,41 @@ char	*get_word_from_string(char *str, char c, int i)
 	while (str[j] != '\0' && (!(str[j] == c)))
 		j++;
 	size_of_word = j - i;
+	// printf("Size of the words is: %d\n", size_of_word);
 	arr = (char *)ft_calloc((size_of_word + 1), sizeof(char));
 	if (!arr)
 		return (0);
-	j = 0;
-	while (j < size_of_word)
-		arr[j++] = str[i++];
+	ft_strlcpy(arr, &str[i], size_of_word + 1);
 	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		words;
+	size_t	i;
+	size_t	j;
+	size_t	temp;
+	size_t	words;
 	char	**arr;
 
 	i = 0;
 	j = 0;
+	temp = 0;
 	words = word_count(s, c);
 	arr = (char **)ft_calloc((words + 1), sizeof(char *));
 	if (!arr)
 		return (0);
-	arr[words] = 0;
-	while (s[i] != 0)
+	while (s[i] != 0 && j < words)
 	{
-		if (s[i] == c)
-		{
+		while (s[i] == c && s[i]!=0)
 			i++;
-			continue ;
+		temp = 0;
+		while (s[i] != c && s[i]!=0)
+		{
+			temp++;
+			i++;
 		}
-		arr[j] = get_word_from_string(s, c, i);
+		arr[j] = (char *)ft_calloc(temp, sizeof(char));
+		arr[j] = ft_substr(s, i - temp, temp);
 		if (arr[j] == 0)
 		{
 			while (j)
@@ -81,15 +90,22 @@ char	**ft_split(char const *s, char c)
 			free(arr);
 			return (0);
 		}
-		i += ft_strlen(arr[j++]);
+		j++;
 	}
 	return (arr);
 }
 
 // int	main(void)
 // {
-// 	char *string = "      split       this for   me  !       ";
-// 	char **expected = ((char *[6]){"split", "this", "for", "me", "!",
-// 			((void *)0)});
-// 	char **result = ft_split(string, ' ');
+// // // 	char	**tab;
+
+// // // 	// char *string = "      split       this for   me  !       ";
+// // // 	// char **expected = ((char *[6]){"split", "this", "for", "me", "!",
+// // // 	// 		((void *)0)});
+// // // 	// char **result = ft_split(string, ' ');
+// // // 	//                    6           18   23    29
+// // // 	tab = ft_split("      split       this for   me  !       ", ' ');
+// // 	char **tab = ft_split("  tripouille  42  ", ' ');
+// // // 	// mcheck(tab, sizeof(char *) * 3);
+// 	ft_split("hello!", ' ');
 // }

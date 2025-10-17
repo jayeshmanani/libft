@@ -6,13 +6,13 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/17 11:41:20 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 14:53:31 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	calc_num(char *str, int index)
+size_t	calc_num(const char *str, int index)
 {
 	size_t	num;
 
