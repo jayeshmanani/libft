@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:52 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 12:27:27 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:43:23 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *src)
 	int		i;
 
 	len = ft_strlen(src);
-	dup = malloc(len + 1);
+	dup = (char *)malloc(len + 1);
 	if (!dup)
 		return (0);
 	i = 0;

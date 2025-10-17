@@ -6,24 +6,26 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 16:49:05 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 14:02:55 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int c)
 {
-	int	ind;
+	size_t	ind;
 
 	ind = 0;
 	while (s[ind] != 0)
 	{
-		if (s[ind] == c)
+		if (s[ind] == (char)c)
 		{
-			return (&s[ind]);
+			return ((char *)(s + ind));
 		}
 		ind++;
 	}
-	if (s[ind] == 0 && c != 0)
+	if (s[ind] == 0 && (char)c != 0)
 		return (0);
-	return (&s[ind]);
+	return ((char *)(s + ind));
 }
