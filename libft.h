@@ -6,13 +6,14 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 18:28:26 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 11:41:40 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
