@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/17 15:47:43 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/17 16:00:38 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,30 +66,29 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	temp = 0;
 	words = word_count(s, c);
 	arr = (char **)ft_calloc((words + 1), sizeof(char *));
 	if (!arr)
 		return (0);
 	while (s[i] != 0 && j < words)
 	{
-		while (s[i] == c && s[i]!=0)
+		while (s[i] == c && s[i] != 0)
 			i++;
 		temp = 0;
-		while (s[i] != c && s[i]!=0)
+		while (s[i] != c && s[i] != 0)
 		{
 			temp++;
 			i++;
 		}
-		arr[j] = (char *)ft_calloc(temp, sizeof(char));
-		arr[j] = ft_substr(s, i - temp, temp);
-		if (arr[j] == 0)
+		arr[j] = (char *)ft_calloc(temp+1, sizeof(char));
+		if (!arr[j])
 		{
 			while (j)
 				free(arr[j--]);
 			free(arr);
 			return (0);
 		}
+		arr[j] = ft_substr(s, i - temp, temp);
 		j++;
 	}
 	return (arr);
