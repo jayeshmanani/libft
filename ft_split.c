@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 17:15:31 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 19:47:48 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	*free_memory(char **arr, size_t i)
 	return (NULL);
 }
 
-int	fill_data(char **arr, char *s, size_t words, char c)
+int	fill_data(char **arr, const char *s, size_t words, char c)
 {
 	size_t	i;
 	size_t	len;
@@ -52,17 +52,17 @@ int	fill_data(char **arr, char *s, size_t words, char c)
 		len = 0;
 		while (*s == c && *s)
 			++s;
-		while (*s != c && *s)
-		{
+		while (*(s+len) != c && *(s+len))
 			++len;
-			++s;
-		}
 		if (len)
 		{
-			arr[i] = ft_substr((char *)(s - len), 0, len);
-			if (!arr[i])
-				return (free_memory(arr, i));
-			i++;
+			arr[i] = ft_substr((char *)(s), 0, len);
+			if (!arr[i++])
+			{
+				free_memory(arr, i);
+				return (0);
+			}
+			s+=len;
 		}
 	}
 	return (1);
