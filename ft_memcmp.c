@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:40 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 11:45:32 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 19:15:23 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		ind;
+	size_t	ind;
 	char	*temp_s1;
 	char	*temp_s2;
 

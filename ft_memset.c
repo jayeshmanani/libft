@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:47 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 12:35:33 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 19:10:24 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	char	*ss;
-	int		i;
+	size_t	i;
 
 	ss = (char *)s;
 	i = 0;
