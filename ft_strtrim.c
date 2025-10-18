@@ -6,19 +6,17 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:40:48 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/16 18:27:34 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 19:13:50 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*create_new_str(int i, int j, char *s1)
+char	*create_new_str(int i, int j, char const *s1)
 {
 	int		len;
 	char	*new_str;
-	int		ind;
 
-	ind = 0;
 	len = j - i + 1;
 	if (len <= 0)
 		return (ft_strdup(""));
@@ -30,15 +28,14 @@ char	*create_new_str(int i, int j, char *s1)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
-	int		str_len;
-	char	*new_str;
+	size_t	i;
+	size_t	j;
+	size_t	str_len;
 
 	i = 0;
 	str_len = ft_strlen(s1);
 	j = str_len - 1;
-	if (str_len == 0)
+	if (!str_len)
 		return (ft_strdup(""));
 	while (ft_strchr(set, s1[i]) != 0)
 		i++;

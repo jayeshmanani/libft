@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:25:10 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/17 15:04:22 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 18:23:21 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_str;
-	int		i;
 	size_t	str_len;
 	size_t	actual_len;
 
-	i = 0;
 	actual_len = len;
 	str_len = ft_strlen(s);
 	actual_len = str_len - start;
