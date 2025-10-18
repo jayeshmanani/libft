@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 13:55:07 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 14:33:55 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,35 @@
 size_t	word_count(const char *str, char c)
 {
 	size_t	count;
-	int	is_word;
+	bool	is_word;
 
 	is_word = 0;
 	count = 0;
 
-	while ((*str) && (*str == c))
-		++str;
-	while (*str != '\0')
+	while (*str)
 	{
-		is_word = 0;
-		while (!(*str == c) && *str)
+		if (*str != c && !is_word)
 		{
-			if (!is_word)
-			{
-				is_word = 1;
-				count++;
-			}
-			str++;
+			is_word = true;
+			count++;
 		}
+		else if(*str == c)
+			is_word = false;
 		str++;
 	}
 	return (count);
 }
 
-int assign_memory(char **arr, size_t index, size_t len){
+bool assign_memory(char **arr, size_t index, size_t len){
 	arr[index] = (char *)ft_calloc(len, sizeof(char));
 	if (!arr[index])
 	{
 		while (index)
 			free(arr[index--]);
 		free(arr);
-		return (1);
+		return (true);
 	}
-	return 0;
+	return false;
 }
 
 char	**ft_split(const char *s, char c)
