@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:45:00 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 15:31:59 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 19:19:02 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	*write_array(long int num, bool is_neg, size_t digits)
 char	*ft_itoa(int n)
 {
 	size_t		digits;
-	size_t		i;
 	bool		is_neg;
 	long int	num;
 
