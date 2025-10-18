@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 14:41:34 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/18 17:15:31 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,15 @@ size_t	word_count(const char *str, char c)
 	return (count);
 }
 
-bool	assign_memory(char **arr, size_t index, size_t len)
+void	*free_memory(char **arr, size_t i)
 {
-	arr[index] = (char *)ft_calloc(len, sizeof(char));
-	if (!arr[index])
-	{
-		while (index)
-			free(arr[index--]);
-		free(arr);
-		return (true);
-	}
-	return (false);
+	while (i)
+		free(arr[--i]);
+	free(arr);
+	return (NULL);
 }
 
-bool	fill_data(char **arr, char *s, size_t words, char c)
+int	fill_data(char **arr, char *s, size_t words, char c)
 {
 	size_t	i;
 	size_t	len;
@@ -64,13 +59,13 @@ bool	fill_data(char **arr, char *s, size_t words, char c)
 		}
 		if (len)
 		{
-			if (assign_memory(arr, i, len + 1))
-				return (true);
-			ft_strlcpy(arr[i], (char *)(s - len), len + 1);
+			arr[i] = ft_substr((char *)(s - len), 0, len);
+			if (!arr[i])
+				return (free_memory(arr, i));
+			i++;
 		}
-		i++;
 	}
-	return (false);
+	return (1);
 }
 
 char	**ft_split(const char *s, char c)
@@ -82,7 +77,8 @@ char	**ft_split(const char *s, char c)
 	arr = (char **)ft_calloc((words + 1), sizeof(char *));
 	if (!arr)
 		return (0);
-	if (fill_data(arr, s, words, c))
+	arr[words] = 0;
+	if (!fill_data(arr, s, words, c))
 		return (NULL);
 	return (arr);
 }
