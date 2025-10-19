@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:18 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 20:08:04 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/19 18:59:03 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	count;
-	char	*loc;
-
-	count = 0;
-	loc = s;
-	while (count < n)
-	{
-		*loc = 0;
-		loc++;
-		count++;
-	}
+	ft_memset(s, 0, n);
 }
