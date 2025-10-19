@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 12:24:48 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/19 19:25:16 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ char	**ft_split(const char *s, char c)
 	arr = (char **)ft_calloc((words + 1), sizeof(char *));
 	if (!arr)
 		return (0);
-	arr[words] = 0;
 	if (!fill_data(arr, s, words, c))
 		return (NULL);
 	return (arr);

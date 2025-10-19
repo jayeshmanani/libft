@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:21 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 17:25:20 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/19 19:12:24 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!space)
 		return (NULL);
 	ft_bzero(space, nmemb * size);
-	return (space);
+	return ((void *)space);
 }
 
 // int	main(void)
