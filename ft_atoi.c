@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 18:24:55 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:22:15 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	calc_num(const char *str, int index)
 int	ft_atoi(const char *str)
 {
 	size_t	num;
-	bool	is_neg;
+	int		is_neg;
 	size_t	index;
 
 	is_neg = false;
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 	if (str[index] == '-' || str[index] == '+')
 	{
 		if (str[index] == '-')
-			is_neg = true;
+			is_neg = 1;
 		index++;
 	}
 	num = calc_num(str, index);
