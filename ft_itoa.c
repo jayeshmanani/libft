@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:45:00 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/23 20:27:27 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:33:39 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_itoa(int n)
 	int			is_neg;
 	long int	num;
 
-	is_neg = false;
+	is_neg = 0;
 	if (n == 0)
 		return (ft_strdup("0"));
 	num = n;
