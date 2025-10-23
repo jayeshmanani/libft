@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 17:06:20 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 17:33:56 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 16:05:28 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(lst->content);
+	if (del)
+		del(lst->content);
 	free(lst);
 }
