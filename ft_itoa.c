@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:45:00 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/18 19:19:02 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:27:27 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	get_digit(long int n, size_t multiple)
 	return ((n % 10) + '0');
 }
 
-char	*write_array(long int num, bool is_neg, size_t digits)
+char	*write_array(long int num, int is_neg, size_t digits)
 {
 	size_t	i;
 	char	*arr;
@@ -57,7 +57,7 @@ char	*write_array(long int num, bool is_neg, size_t digits)
 char	*ft_itoa(int n)
 {
 	size_t		digits;
-	bool		is_neg;
+	int			is_neg;
 	long int	num;
 
 	is_neg = false;
@@ -66,7 +66,7 @@ char	*ft_itoa(int n)
 	num = n;
 	if (n < 0)
 	{
-		is_neg = true;
+		is_neg = 1;
 		num = -num;
 	}
 	digits = count_digits(num);

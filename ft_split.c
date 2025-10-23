@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 18:28:29 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 19:25:16 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:23:54 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	word_count(const char *str, char c)
 {
 	size_t	count;
-	bool	is_word;
+	int		is_word;
 
 	is_word = 0;
 	count = 0;
@@ -23,11 +23,11 @@ size_t	word_count(const char *str, char c)
 	{
 		if (*str != c && !is_word)
 		{
-			is_word = true;
+			is_word = 1;
 			count++;
 		}
 		else if (*str == c)
-			is_word = false;
+			is_word = 0;
 		str++;
 	}
 	return (count);
