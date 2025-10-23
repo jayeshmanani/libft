@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/23 20:32:33 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:32:59 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 	int		is_neg;
 	size_t	index;
 
-	is_neg = false;
+	is_neg = 0;
 	num = 0;
 	index = 0;
 	while ((str[index] != 0) && ((str[index] < 14 && str[index] > 8)
