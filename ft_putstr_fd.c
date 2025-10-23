@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 15:47:14 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/23 20:47:32 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 21:30:44 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
+	if (s != NULL)
 	{
-		write(fd, s, 1);
-		s++;
+		while (*s)
+		{
+			write(fd, s++, 1);
+		}
 	}
 }
