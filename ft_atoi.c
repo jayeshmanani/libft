@@ -6,15 +6,15 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:50:22 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/23 20:26:40 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:32:33 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	calc_num(const char *str, int index)
+int	calc_num(const char *str, int index)
 {
-	size_t	num;
+	int	num;
 
 	num = 0;
 	while (str[index] != 0 && str[index] >= '0' && str[index] <= '9')
