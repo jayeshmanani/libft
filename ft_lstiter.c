@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 17:35:31 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 17:39:20 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 16:06:29 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst != NULL)
+	if (lst && f)
 	{
-		f(lst->content);
-		lst = lst->next;
+		while (lst != NULL)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
 	}
 }
