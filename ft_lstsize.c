@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 12:42:32 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 16:24:08 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 16:10:38 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	if (lst == NULL)
+	if (!lst)
 		return (0);
-	else
-		lst = lst->next;
+	lst = lst->next;
 	return (1 + ft_lstsize(lst));
 }
