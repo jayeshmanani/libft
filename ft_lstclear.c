@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 17:09:26 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 17:35:14 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/23 15:55:06 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*lst_new;
 	t_list	*lst_cur;
-
+	
 	if (lst && del)
 	{
 		lst_cur = *lst;
