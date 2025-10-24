@@ -6,7 +6,7 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 16:06:18 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 18:59:03 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/24 13:50:45 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, n);
+	if (n)
+		ft_memset(s, 0, n);
 }
