@@ -14,11 +14,13 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	int	i;
 	size_t	len;
 	char	*arr;
 
-	i = 0;
+	i = -1;
+	if (!s || !f)
+		return (NULL);
 	len = ft_strlen(s);
 	if (len)
 	{
@@ -28,10 +30,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	else
 		return (ft_strdup(""));
-	while (s[i])
-	{
+	while (s[++i])
 		arr[i] = f(i, s[i]);
-		i++;
-	}
 	return (arr);
 }
