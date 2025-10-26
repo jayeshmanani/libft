@@ -14,16 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*temp_s;
 	size_t	i;
 
 	i = 0;
-	temp_s = (char *)s;
 	while (i < n)
 	{
-		if (*temp_s == (char)c)
-			return ((void *)(temp_s));
-		temp_s++;
+		if (*(char *)s == (char)c)
+			return ((void *)(s));
+		s++;
 		i++;
 	}
 	return (NULL);
