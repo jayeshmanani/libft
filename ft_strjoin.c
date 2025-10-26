@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len;
 	char	*new_str;
 
+	if (!s1 || !s2)
+		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	if (!len)
 		return (ft_strdup(""));
