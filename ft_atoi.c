@@ -24,8 +24,8 @@ int	calc_num(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	bool	is_neg;
-	int		num;
+	int	is_neg;
+	int	num;
 
 	is_neg = 0;
 	num = 0;
