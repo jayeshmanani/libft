@@ -22,7 +22,7 @@ char	*create_new_str(int i, int j, char const *s1)
 		return (ft_strdup(""));
 	new_str = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!new_str)
-		return (0);
+		return (NULL);
 	return (ft_memcpy(new_str, &s1[i], len));
 }
 
@@ -37,9 +37,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = str_len - 1;
 	if (!str_len)
 		return (ft_strdup(""));
-	while (ft_strchr(set, s1[i]) != 0)
+	while (ft_strchr(set, s1[i]) != NULL)
 		i++;
-	while (ft_strchr(set, s1[j]) != 0)
+	while (ft_strchr(set, s1[j]) != NULL)
 		j--;
 	return (create_new_str(i, j, s1));
 }
