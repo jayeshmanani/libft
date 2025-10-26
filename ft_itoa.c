@@ -25,14 +25,14 @@ size_t	count_digits(long int n)
 	return (count);
 }
 
-char	get_digit(long int n, size_t multiple)
+char	get_digit(long n, size_t multiple)
 {
 	while (multiple-- && n > 0)
 		n /= 10;
 	return ((n % 10) + '0');
 }
 
-char	*write_array(long int num, int is_neg, size_t digits)
+char	*write_array(long num, int is_neg, size_t digits)
 {
 	size_t	i;
 	char	*arr;
@@ -56,9 +56,9 @@ char	*write_array(long int num, int is_neg, size_t digits)
 
 char	*ft_itoa(int n)
 {
-	size_t		digits;
-	int			is_neg;
-	long int	num;
+	size_t	digits;
+	int		is_neg;
+	long	num;
 
 	is_neg = 0;
 	if (n == 0)
