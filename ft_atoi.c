@@ -12,39 +12,28 @@
 
 #include "libft.h"
 
-int	calc_num(const char *str, int index)
+int	calc_num(const char *str)
 {
 	int	num;
 
 	num = 0;
-	while (str[index] != 0 && str[index] >= '0' && str[index] <= '9')
-	{
-		num *= 10;
-		num += str[index] - '0';
-		index++;
-	}
+	while (*str != '\0' && *str >= '0' && *str <= '9')
+		num = (num * 10) + *(str++) - '0';
 	return (num);
 }
 
 int	ft_atoi(const char *str)
 {
+	bool	is_neg;
 	int		num;
-	int		is_neg;
-	size_t	index;
 
 	is_neg = 0;
 	num = 0;
-	index = 0;
-	while ((str[index] != 0) && ((str[index] < 14 && str[index] > 8)
-			|| (str[index] == 32)))
-		index++;
-	if (str[index] == '-' || str[index] == '+')
-	{
-		if (str[index] == '-')
-			is_neg = 1;
-		index++;
-	}
-	num = calc_num(str, index);
+	while ((*str != '\0') && ((*str < 14 && *str > 8) || (*str == 32)))
+		str++;
+	if ((*str == '-' || *str == '+') && (*(str++) == '-'))
+		is_neg = 1;
+	num = calc_num(str);
 	if (is_neg)
 		return (-num);
 	return (num);
