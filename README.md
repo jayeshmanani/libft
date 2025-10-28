@@ -1,194 +1,113 @@
-🧱 Libft — My Custom C Standard Library
+# libft
 
-Libft is my very first project at 42 Heilbronn, completed after the Kick-Off.
-It’s a foundational C library that re-implements essential functions from the standard C library, along with additional utilities such as linked list management and advanced string handling.
+A small custom C library reimplementing common functions from the C standard library plus handy utility functions and a simple linked list implementation.
 
-This project was my introduction to writing clean, efficient, and reusable C code - and serves as a core library for all future 42 projects.
+This repository is a personal implementation of foundational C routines used at 42 School (Heilbronn) and is intended as a reusable library for other C projects.
 
-🚀 Overview
+## Table of Contents
 
-The goal of Libft is to create a personal standard library in C by rebuilding fundamental functions from <string.h>, <ctype.h>, <stdlib.h>, and more — entirely from scratch.
+- [Features](#features)
+- [Files & API Summary](#files--api-summary)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Author](#author)
 
-It helped me develop a deep understanding of:
+## Features
 
-Memory allocation and pointer arithmetic
+- Re-implementations of common functions from <string.h>, <ctype.h>, <stdlib.h>
+- Memory helpers (ft_calloc, ft_memset, ft_bzero, ...)
+- String utilities (ft_strdup, ft_strjoin, ft_split, ft_strtrim, ...)
+- Integer/string conversion (ft_atoi, ft_itoa)
+- Small linked-list implementation and helpers (ft_lstnew, ft_lstadd_front, ...)
+- Simple, well-separated functions suitable for learning and reuse
 
-String manipulation and buffer handling
+## Files & API Summary
 
-Function modularity and reusability
+The library provides the following categories of functions (file names are the same as the function names):
 
-Data structures (linked lists)
+Character & string
+- `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`
+- `ft_toupper`, `ft_tolower`
+- `ft_strlen`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`
+- `ft_strdup`, `ft_strjoin`, `ft_strtrim`, `ft_substr`, `ft_split`, `ft_strlcpy`, `ft_strlcat`, `ft_strmapi`, `ft_striteri`
 
+Memory
+- `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`, `ft_calloc`
 
-🧠 What I Learned
+Conversion
+- `ft_atoi`, `ft_itoa`
 
-Through Libft, I gained hands-on experience in:
+Output
+- `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
 
-Memory management: Allocating, freeing, and avoiding leaks
+Linked list
+- `ft_lstnew`, `ft_lstadd_front`, `ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`
 
-Pointer logic: Understanding how data moves through memory
+Header file: `libft.h` exposes the public prototypes and necessary types.
 
-Algorithmic thinking: Implementing low-level operations manually
+## Installation
 
-Code organization: Writing modular, reusable, and testable functions
+Clone the repository and build the static library using the provided `Makefile`:
 
-Linked lists: Building and manipulating dynamic data structures
-
-
-🏫 About the Project
-
-This project is part of the 42 School Curriculum and represents the first major step into the C programming world.
-The experience of building Libft from scratch built the foundation for my later 42 projects, such as ft_printf, get_next_line, and pipex.
-
-
-🧰 Skills Demonstrated
-
-Low-level C programming
-
-Dynamic memory management
-
-Functional programming patterns
-
-Data structure design (linked lists)
-
-Clean code and modularity
-
-
-⚙️ Usage
-
-Clone and compile the library:
-
+```bash
 git clone https://github.com/jayeshmanani/libft.git
-
 cd libft
-
 make
+```
 
+Assumption: the `Makefile` provides the standard targets (`all`/default builds `libft.a`, `clean`, `fclean`, `re`). If your `Makefile` differs, use the appropriate target.
 
-Include it in your C project:
+## Usage
 
+Include the header in your source and link with the generated static library:
+
+```c
 #include "libft.h"
 
+int main(void) {
+    /* use ft_* functions */
+}
+```
 
-Compile with:
+Compile and link:
 
-gcc main.c libft.a -o main
+```bash
+gcc -Wall -Wextra -Werror main.c libft.a -I . -o main
+```
 
+## Examples
 
-Example:
+Simple example using `ft_strlen`:
 
+```c
 #include "libft.h"
 #include <stdio.h>
 
 int main(void)
 {
-    char str[] = "Hello, Libft!";
-    printf("Length: %zu\n", ft_strlen(str));
+    const char *s = "Hello, Libft!";
+    printf("Length: %zu\n", ft_strlen(s));
     return 0;
 }
+```
 
+## Testing
 
+- Use the `Makefile` to build the library (`make`).
+- Add your own test `main.c` files and compile them against `libft.a` as shown above.
 
-🧩 Implemented Functions
-🔤 Character & String Handling
+If you want automated tests, consider adding a small test harness (e.g., a `tests/` folder with a Makefile or a simple shell script).
 
-ft_isalpha
+## Contributing
 
-ft_isdigit
+This repository is a personal project used for learning. If you'd like to contribute or suggest improvements, open an issue or submit a pull request. Keep changes small and focused.
 
-ft_isalnum
+## Author
 
-ft_isascii
+- Jayesh Manani — 42 Heilbronn
+- GitHub: https://github.com/jayeshmanani/libft
 
-ft_isprint
-
-ft_toupper
-
-ft_tolower
-
-ft_strlen
-
-ft_strchr
-
-ft_strrchr
-
-ft_strncmp
-
-ft_strnstr
-
-ft_strdup
-
-ft_strjoin
-
-ft_strtrim
-
-ft_substr
-
-ft_split
-
-ft_strlcpy
-
-ft_strlcat
-
-ft_strmapi
-
-ft_striteri
-
-🧠 Memory Management
-
-ft_memset
-
-ft_bzero
-
-ft_memcpy
-
-ft_memmove
-
-ft_memchr
-
-ft_memcmp
-
-ft_calloc
-
-🔢 Conversion
-
-ft_atoi
-
-ft_itoa
-
-🖨️ File Descriptor Output
-
-ft_putchar_fd
-
-ft_putstr_fd
-
-ft_putendl_fd
-
-ft_putnbr_fd
-
-🔗 Linked List Management
-
-ft_lstnew
-
-ft_lstadd_front
-
-ft_lstadd_back
-
-ft_lstsize
-
-ft_lstlast
-
-ft_lstdelone
-
-ft_lstclear
-
-ft_lstiter
-
-ft_lstmap
-
-
-💬 Author
-
-👨‍💻 Jayesh Manani
-📍 42 Heilbronn
-🔗 GitHub Profile
+---
