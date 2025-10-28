@@ -79,6 +79,7 @@ Assumption: the `Makefile` provides the standard targets (`all`/default builds `
 Include the header in your source and link with the generated static library:
 
 ```c
+// main.c
 #include "libft.h"
 
 int main(void) {
@@ -89,7 +90,7 @@ int main(void) {
 Compile and link:
 
 ```bash
-gcc -Wall -Wextra -Werror main.c libft.a -I . -o main
+cc -Wall -Wextra -Werror main.c libft.a -I . -o main
 ```
 
 ## Examples
@@ -97,6 +98,7 @@ gcc -Wall -Wextra -Werror main.c libft.a -I . -o main
 Simple example using `ft_strlen`:
 
 ```c
+//main.c
 #include "libft.h"
 #include <stdio.h>
 
