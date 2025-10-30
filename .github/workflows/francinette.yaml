@@ -16,14 +16,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Pull Francinette Docker image (public, no login needed)
+      # 2️⃣ Pull Francinette Docker image (public)
       - name: Pull Francinette Docker image
         run: docker pull jaymanani/francinette:latest
 
-      # 3️⃣ Run Francinette container on your repo
+      # 3️⃣ Run Francinette normal mode - on repo
       - name: Run Francinette tests
         run: |
           docker run --rm -t \
             -v ${{ github.workspace }}:/project \
             -w /project \
             jaymanani/francinette:latest
+
+      # 4: Run Francinette strict mode tests
+      - name: Run Francinette strict mode tests
+        run: |
+          sudo docker run --rm -it \
+          -v "$(pwd)":/project \
+          -w /project \
+          jaymanani/francinette:latest \
+          /francinette/tester.sh -s
