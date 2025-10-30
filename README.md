@@ -16,6 +16,8 @@ This repository is a personal implementation of foundational C routines used at 
 
 - Clean code, modularity and reusability
 
+- updated the libft with printf functionality
+
 ---
 
 ## Table of Contents
@@ -31,7 +33,7 @@ This repository is a personal implementation of foundational C routines used at 
 
 ## 🚀 Features
 
-- Re-implementations of common functions from <string.h>, <ctype.h>, <stdlib.h>
+- Re-implementations of common functions from <string.h>, <ctype.h>, <stdlib.h>, <stdio.h>
 - Memory helpers (ft_calloc, ft_memset, ft_bzero, ...)
 - String utilities (ft_strdup, ft_strjoin, ft_split, ft_strtrim, ...)
 - Integer/string conversion (ft_atoi, ft_itoa)
@@ -55,7 +57,7 @@ The library provides the following categories of functions (file names are the s
 - `ft_atoi`, `ft_itoa`
 
 🖨️ File Descriptor Output
-- `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
+- `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`, `ft_printf`
 
 🔗 Linked List Management
 - `ft_lstnew`, `ft_lstadd_front`, `ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`
@@ -99,7 +101,7 @@ Simple example using `ft_strlen`:
 
 ```c
 //main.c
-#include "libft.h"
+#include "libft.h"utnbr_fd
 #include <stdio.h>
 
 int main(void)
