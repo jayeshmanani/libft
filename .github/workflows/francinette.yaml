@@ -11,21 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Install dependencies for Francinette
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git make clang python3 python3-venv python3-pip
 
-      - name: Cache Francinette
-        uses: actions/cache@v4
-        with:
-          path: ~/francinette
-          key: francinette-v1
-
-      - name: Clone and setup Francinette
+      # 3. Clone and setup Francinette
+      - name: Setup Francinette
         run: |
           git clone https://github.com/xicodomingues/francinette.git ~/francinette
           cd ~/francinette
@@ -34,11 +31,11 @@ jobs:
           pip install -r requirements.txt
           chmod +x tester.sh
 
-      - name: Run Francinette inside libft repo
+      # 4. Run Francinette in your libft folder
+      - name: Run Francinette
         run: |
           cd $GITHUB_WORKSPACE
-          echo "Current dir: $(pwd)"
+          pwd
           ls -l
-          cd ~/francinette
-          source venv/bin/activate
-          ./tester.sh .
+          source ~/francinette/venv/bin/activate
+          ~/francinette/tester.sh .
