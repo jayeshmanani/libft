@@ -1,4 +1,4 @@
-name: Francinette + Norminette + libft Testers
+name: libftTester CI
 
 on:
   push:
@@ -6,59 +6,38 @@ on:
   pull_request:
 
 jobs:
-  tests:
+  test_libft:
     runs-on: ubuntu-latest
-    name: Run full libft workflow
-
     steps:
-      - name: Checkout repo
+      # 1. Checkout your libft repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      # 2. Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git make clang python3 python3-venv python3-pip
+          sudo apt-get install -y git make clang valgrind
 
-      - name: Cache Francinette
-        uses: actions/cache@v4
-        with:
-          path: ~/francinette
-          key: francinette-${{ runner.os }}-v1
-
-      - name: Setup Francinette
+      # 3. Clone Tripouille's libftTester
+      - name: Clone libftTester
         run: |
-          if [ ! -d ~/francinette ]; then
-            git clone https://github.com/xicodomingues/francinette.git ~/francinette
-          fi
-          cd ~/francinette
-          python3 -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+          git clone https://github.com/Tripouille/libftTester.git ~/libftTester
+
+      # 4. Configure the tester
+      - name: Configure libftTester
+        run: |
+          cd ~/libftTester
+          # Set LIBFT_PATH to your repo
+          sed -i "s|LIBFT_PATH=.*|LIBFT_PATH=$GITHUB_WORKSPACE|" Makefile
+
+      # 5. Run all mandatory + bonus tests
+      - name: Run libftTester
+        run: |
+          cd ~/libftTester
+          make a
+
+      - name: Norminette Check
+        run: |
           pip install norminette
-          chmod +x tester.sh
-
-      - name: Move to project root
-        run: |
-          cd $GITHUB_WORKSPACE
-          ls -la
-
-      - name: Ensure libft‑tester is present
-        run: |
-          cd ~/francinette/testers
-          if [ ! -d libft ]; then
-            echo "libft tester folder missing!"
-            exit 1
-          fi
-          echo "libft tester folder found."
-
-      - name: Run Francinette with libft testers
-        run: |
-          cd $GITHUB_WORKSPACE
-          source ~/francinette/venv/bin/activate
-          ~/francinette/tester.sh . --tester libft
-          
-      - name: Run Norminette
-        run: |
-          cd $GITHUB_WORKSPACE
-          source ~/francinette/venv/bin/activate
-          norminette .
+          norminette $GITHUB_WORKSPACE
