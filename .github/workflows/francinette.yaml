@@ -1,6 +1,5 @@
-name: Francinette CI - Docker
+name: Francinette CI
 
-# Run workflow on push or pull requests to main branch
 on:
   push:
     branches: [master]
@@ -16,23 +15,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Pull Francinette Docker image (public)
-      - name: Pull Francinette Docker image
-        run: docker pull jaymanani/francinette:latest
+      # 2️⃣ Set up Docker Buildx (for caching if we rebuild the image)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      # 3️⃣ Run Francinette normal mode - on repo
-      - name: Run Francinette tests
+      # 3️⃣ Optional: Use GitHub cache for Docker layers (if rebuild the image)
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-docker-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
+      # 4️⃣ Pull the public Francinette image (fast, Docker cache)
+      - name: Pull Francinette Docker image
+        run: docker pull jaymanani/francinette:latest || true
+
+      # 5️⃣ Run both normal + strict tests in a single container
+      - name: Run Francinette normal + strict tests
         run: |
           docker run --rm -t \
             -v ${{ github.workspace }}:/project \
             -w /project \
-            jaymanani/francinette:latest
-
-      # 4: Run Francinette strict mode tests
-      - name: Run Francinette strict mode tests
-        run: |
-          sudo docker run --rm -it \
-          -v "$(pwd)":/project \
-          -w /project \
-          jaymanani/francinette:latest \
-          /francinette/tester.sh -s
+            jaymanani/francinette:latest \
+            /bin/bash -c "/francinette/tester.sh && /francinette/tester.sh -s"
