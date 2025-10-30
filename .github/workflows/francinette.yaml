@@ -1,0 +1,28 @@
+name: Francinette Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  francinette:
+    name: Run Francinette Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git make clang python3 python3-pip
+          git clone https://github.com/xicodomingues/francinette.git ~/francinette
+          chmod +x ~/francinette/tester.sh
+
+      - name: Run Francinette
+        run: |
+          cd ~/francinette
+          ./tester.sh ../../
