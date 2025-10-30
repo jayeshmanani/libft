@@ -1,47 +1,29 @@
-name: Francinette CI
+name: Francinette CI - Docker
 
+# Run workflow on push or pull requests to main branch
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
+    branches: [master]
 
 jobs:
   francinette:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout your repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11  # match your python version
+      # 2️⃣ Pull Francinette Docker image (public, no login needed)
+      - name: Pull Francinette Docker image
+        run: docker pull jaymanani/francinette:latest
 
-      - name: Install system dependencies
+      # 3️⃣ Run Francinette container on your repo
+      - name: Run Francinette tests
         run: |
-          sudo apt update
-          sudo apt install -y git gcc clang libpq-dev libbsd-dev \
-            libncurses-dev valgrind build-essential nasm cmake make \
-            libxext-dev python3-dev python3-pip python3-venv
-          
-      - name: Clone Francinette
-        run: git clone --recursive https://github.com/xicodomingues/francinette.git
-
-      - name: Set up virtual environment and install requirements
-        run: |
-          python3 -m venv francinette/venv
-          . francinette/venv/bin/activate
-          pip install --upgrade pip
-          pip install wheel
-          pip install -r francinette/requirements.txt
-          pip install norminette
-
-      - name: Make tester executable
-        run: chmod +x francinette/tester.sh
-
-      - name: Run Francinette
-        run: |
-          . francinette/venv/bin/activate
-          ./francinette/tester.sh
+          docker run --rm -t \
+            -v ${{ github.workspace }}:/project \
+            -w /project \
+            jaymanani/francinette:latest
