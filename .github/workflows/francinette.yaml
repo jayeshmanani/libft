@@ -2,25 +2,24 @@ name: Francinette Tests
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   pull_request:
 
 jobs:
   francinette:
-    name: Run Francinette Tests
+    name: Run Francinette on libft
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git make clang python3 python3-venv python3-pip
 
-      - name: Clone and set up Francinette
+      - name: Clone and setup Francinette
         run: |
           git clone https://github.com/xicodomingues/francinette.git ~/francinette
           cd ~/francinette
@@ -29,13 +28,11 @@ jobs:
           pip install -r requirements.txt
           chmod +x tester.sh
 
-      - name: Check repo structure
+      - name: Run Francinette inside libft repo
         run: |
-          echo "Workspace path: $GITHUB_WORKSPACE"
-          ls -R $GITHUB_WORKSPACE
-
-      - name: Run Francinette on libft
-        run: |
+          cd $GITHUB_WORKSPACE
+          echo "Current dir: $(pwd)"
+          ls -l
           cd ~/francinette
           source venv/bin/activate
-          ./tester.sh $GITHUB_WORKSPACE
+          ./tester.sh .
