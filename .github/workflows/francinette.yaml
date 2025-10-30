@@ -34,6 +34,7 @@ jobs:
       # 5. Run all mandatory + bonus tests
       - name: Run libftTester
         run: |
+          export TERM=xterm
           cd ~/libftTester
           make a
 
