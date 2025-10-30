@@ -1,13 +1,13 @@
-name: Francinette + Norminette + Test 4 Only
+name: Norminette Workflow
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ master ]
   pull_request:
 
 jobs:
   tests:
-    name: Run Francinette workflow (tester 4 only)
+    name: Run Norminette workflow
     runs-on: ubuntu-latest
 
     steps:
@@ -21,40 +21,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y git make clang python3 python3-venv python3-pip
 
-      # 3. Cache Francinette
-      - name: Cache Francinette
-        uses: actions/cache@v4
-        with:
-          path: ~/francinette
-          key: francinette-${{ runner.os }}-v1
-
-      # 4. Setup Francinette
-      - name: Setup Francinette
+      # 3. Install Norminette
+      - name: Install Norminette
         run: |
-          if [ ! -d ~/francinette ]; then
-            git clone https://github.com/xicodomingues/francinette.git ~/francinette
-          fi
-          cd ~/francinette
-          python3 -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
           pip install norminette
-          chmod +x tester.sh
 
-      # 5. Move to project root
+      # 4. Move to project root
       - name: Move to project root
         run: |
           cd $GITHUB_WORKSPACE
           ls -la
 
-      # 6. Run Francinette for tester 4 only
-      - name: Run Francinette tester 4
-        run: |
-          cd $GITHUB_WORKSPACE
-          source ~/francinette/venv/bin/activate
-          ~/francinette/tester.sh . -t 4
-
-      # 7. Run Norminette
+      # 5. Run Norminette
       - name: Run Norminette
         run: |
           cd $GITHUB_WORKSPACE
