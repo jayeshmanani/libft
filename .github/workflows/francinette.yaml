@@ -27,7 +27,7 @@ jobs:
           pip install norminette
 
       # 4. Move to project root
-      - name: Move to project root
+      - name: List all the Files
         run: |
           cd $GITHUB_WORKSPACE
           ls -la
@@ -36,5 +36,4 @@ jobs:
       - name: Run Norminette
         run: |
           cd $GITHUB_WORKSPACE
-          source ~/francinette/venv/bin/activate
           norminette .
