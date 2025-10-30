@@ -1,4 +1,4 @@
-name: Francinette Tests
+name: Francinette + Norminette + libft Testers
 
 on:
   push:
@@ -6,37 +6,59 @@ on:
   pull_request:
 
 jobs:
-  francinette:
-    name: Run Francinette on libft
+  tests:
     runs-on: ubuntu-latest
+    name: Run full libft workflow
 
     steps:
-      # 1. Checkout repository
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      # 2. Install dependencies for Francinette
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git make clang python3 python3-venv python3-pip
 
-      # 3. Clone and setup Francinette
+      - name: Cache Francinette
+        uses: actions/cache@v4
+        with:
+          path: ~/francinette
+          key: francinette-${{ runner.os }}-v1
+
       - name: Setup Francinette
         run: |
-          git clone https://github.com/xicodomingues/francinette.git ~/francinette
+          if [ ! -d ~/francinette ]; then
+            git clone https://github.com/xicodomingues/francinette.git ~/francinette
+          fi
           cd ~/francinette
           python3 -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-          pip install norminette  # install Norminette
+          pip install norminette
           chmod +x tester.sh
 
-      # 4. Run Francinette in your libft folder
-      - name: Run Francinette
+      - name: Move to project root
         run: |
           cd $GITHUB_WORKSPACE
-          pwd
-          ls -l
+          ls -la
+
+      - name: Ensure libft‑tester is present
+        run: |
+          cd ~/francinette/testers
+          if [ ! -d libft ]; then
+            echo "libft tester folder missing!"
+            exit 1
+          fi
+          echo "libft tester folder found."
+
+      - name: Run Francinette with libft testers
+        run: |
+          cd $GITHUB_WORKSPACE
           source ~/francinette/venv/bin/activate
-          ~/francinette/tester.sh .
+          ~/francinette/tester.sh . --tester libft
+          
+      - name: Run Norminette
+        run: |
+          cd $GITHUB_WORKSPACE
+          source ~/francinette/venv/bin/activate
+          norminette .
