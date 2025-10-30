@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jay <jay@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/30 17:37:59 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/30 21:55:56 by jay              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,12 @@ int					ft_handle_char(int c);
 int					ft_handle_string(char *temp);
 int					ft_handle_numbers(int n, char c);
 int					ft_handle_pointer(void *p);
+
+/* platform-specific NULL pointer string  for ft_printf pointer */
+# ifdef __APPLE__
+#  define NULL_PTR_STR "0x0"
+# else
+#  define NULL_PTR_STR "(nil)"
+# endif
 
 #endif

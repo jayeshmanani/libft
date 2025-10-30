@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_numbers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jay <jay@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:41:40 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/30 17:34:44 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/30 21:55:10 by jay              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_handle_pointer(void *p)
 	int					r;
 
 	if (!p)
-		return (ft_handle_string("(nil)"));
+		return (ft_handle_string(NULL_PTR_STR));
 	if (write(1, "0x", 2) == -1)
 		return (-1);
 	addr = (unsigned long long)p;
