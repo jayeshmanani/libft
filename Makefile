@@ -6,7 +6,7 @@
 #    By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 19:00:38 by jmanani           #+#    #+#              #
-#    Updated: 2025/10/24 14:27:19 by jmanani          ###   ########.fr        #
+#    Updated: 2025/10/30 17:37:58 by jmanani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SOURCES= ft_atoi.c ft_isalpha.c ft_itoa.c ft_memmove.c ft_putnbr_fd.c \
 			ft_strtrim.c ft_isalnum.c ft_isprint.c ft_memcpy.c ft_putendl_fd.c \
 			ft_strchr.c ft_strlcat.c ft_strncmp.c ft_substr.c \
 			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c\
+			ft_printf.c	ft_handle_numbers.c
 
 OBJS= $(SOURCES:.c=.o)
 
@@ -34,7 +35,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS)
 
 fclean:
 	make clean

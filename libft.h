@@ -6,18 +6,16 @@
 /*   By: jmanani <jmanani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:35:49 by jmanani           #+#    #+#             */
-/*   Updated: 2025/10/19 17:40:07 by jmanani          ###   ########.fr       */
+/*   Updated: 2025/10/30 17:37:59 by jmanani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdbool.h>
-# include <stddef.h>
-# include <stdio.h>
+// All the Standard Libraries
+# include <stdarg.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 // Part 1 - Libc functions (1-23)
@@ -77,5 +75,12 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+// Printf Funcitonality
+int					ft_printf(const char *s, ...);
+int					ft_handle_char(int c);
+int					ft_handle_string(char *temp);
+int					ft_handle_numbers(int n, char c);
+int					ft_handle_pointer(void *p);
 
 #endif
